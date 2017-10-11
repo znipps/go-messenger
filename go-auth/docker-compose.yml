@@ -6,6 +6,7 @@ services:
     image: usman/go-auth:${GO_AUTH_VERSION:-latest}
     ports:
       - "9000:9000"
+    network_mode: host  
     command:
       - "-l"
       - "debug"
@@ -17,6 +18,7 @@ services:
 
   db:
     image: mysql
+    network_mode: host
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: messenger
